@@ -39,46 +39,23 @@ h1 {
   font-size: 50px;
 }
 
-#app {
-  #menu {
-        box-shadow: black 0 0 20px 0px;
-    z-index: 4;
-   position: absolute;
-    bottom: 0;
+@media only screen and (min-width: 600px){
+  #app{
+    background: black;
+    height: 100vh;
     width: 100%;
-    background: white;
     display: flex;
-    justify-content: space-around;
-    .link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .icon {
-        font-size: 2rem;
-        margin: 10px 0;
-        transition: color .5s ease-in-out;
-        color: grey;
+    justify-content: center;
+    align-items: center;
+    #bills-app{
+      width: 324px;
+      height: 700px;
+      #all-bills{
+        height: calc(100vh - 175px);
       }
 
-      .text {
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        color: grey;
-      }
-      &:hover {
-        color: transparent;
-        background: linear-gradient(45deg, #09c3ff, #0067b3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        cursor: pointer;
-        .fa:before{
-          background: linear-gradient(45deg, #09c3ff, #0067b3);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      }
     }
+
   }
+
 }

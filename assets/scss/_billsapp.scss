@@ -2,7 +2,7 @@
   text-shadow: #707070 0 0 2px;
   height: 100vh;
   background: linear-gradient(45deg, #09c3ff, #0067b3);
-
+  position: relative;
   header {
     display: flex;
     justify-content: center;
@@ -38,12 +38,14 @@
   #all-bills {
     position: relative;
     z-index: 2;
+    height: calc(100vh - 121px);
+    overflow: scroll;
 
     .container {
       width: 100%;
       padding: 0 20px;
       background: #ffffff75;
-
+      padding-bottom: 20px;
       .total-bills {
         color: white;
         display: flex;
@@ -62,8 +64,7 @@
       }
 
       .bill-list {
-        overflow: scroll;
-        max-height: 75vh;
+
 
         .bill {
           display: -ms-flexbox;
@@ -108,5 +109,49 @@
     bottom: 0;
     width: 100%;
     z-index: 0;
+  }
+}
+
+#app {
+  #menu {
+        box-shadow: black 0 0 20px 0px;
+    z-index: 4;
+   position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    .link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        font-size: 2rem;
+        margin: 10px 0;
+        transition: color .5s ease-in-out;
+        color: grey;
+      }
+
+      .text {
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color: grey;
+      }
+      &:hover {
+        color: transparent;
+        background: linear-gradient(45deg, #09c3ff, #0067b3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: pointer;
+        .fa:before{
+          background: linear-gradient(45deg, #09c3ff, #0067b3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
   }
 }
