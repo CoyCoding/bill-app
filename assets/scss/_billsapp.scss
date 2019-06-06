@@ -1,0 +1,112 @@
+#bills-app {
+  text-shadow: #707070 0 0 2px;
+  height: 100vh;
+  background: linear-gradient(45deg, #09c3ff, #0067b3);
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    h2 {
+      font-size: 2rem;
+      color: white;
+    }
+
+    i {
+      position: absolute;
+      right: 20px;
+      font-size: 2rem;
+      background: #ffffff80;
+      border: white solid;
+      color: white;
+      border-radius: 50%;
+      width: 39px;
+      height: 39px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        text-shadow: white 0 0 10px;
+        box-shadow: #ffffff 0 0 5px 1px;
+      }
+    }
+  }
+
+  #all-bills {
+    position: relative;
+    z-index: 2;
+
+    .container {
+      width: 100%;
+      padding: 0 20px;
+      background: #ffffff75;
+
+      .total-bills {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+
+        .text {
+          font-size: 1.3rem;
+        }
+
+        .number {
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .bill-list {
+        overflow: scroll;
+        max-height: 75vh;
+
+        .bill {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          -ms-flex-align: center;
+          align-items: center;
+          align-items: center;
+          padding: 20px;
+          box-shadow: inset #c2c0c0 20px 0 0 1px;
+          background: white;
+          &:last-child {
+            margin-bottom: 50px;
+          }
+          .company {
+            .logo {
+              height: 40px;
+              display: flex;
+              align-items: center;
+
+              img {
+                width: 50px;
+                border-radius: 10px;
+              }
+            }
+          }
+
+          .title {
+            font-size: 1.1rem;
+            margin: 0 auto 0 20px;
+          }
+        }
+      }
+    }
+  }
+
+  #content-bg {
+    height: 80vh;
+    background: #ffffff7d;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+  }
+}

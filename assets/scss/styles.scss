@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import "reset";
+@import "billsapp";
+
+body {
+  line-height: 1;
+  background: white;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 50px;
+}
+
+#app {
+  #menu {
+        box-shadow: black 0 0 20px 0px;
+    z-index: 4;
+   position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    .link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        font-size: 2rem;
+        margin: 10px 0;
+        transition: color .5s ease-in-out;
+        color: grey;
+      }
+
+      .text {
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color: grey;
+      }
+      &:hover {
+        color: transparent;
+        background: linear-gradient(45deg, #09c3ff, #0067b3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: pointer;
+        .fa:before{
+          background: linear-gradient(45deg, #09c3ff, #0067b3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
