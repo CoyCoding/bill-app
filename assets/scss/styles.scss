@@ -47,13 +47,14 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+
     #bills-app{
       width: 400px;
       height: 700px;
       border-radius: 15px;
       overflow: hidden;
       #all-bills{
-        height: calc(100vh - 175px);
+            height: calc(100vh - 280px);
       }
 
     }
