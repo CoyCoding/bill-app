@@ -9,21 +9,46 @@ export default class AllBills extends Component {
 	}
 
 	showAllBills = () => {
-		const bills = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
-		return bills.map(bill => {
-			return (
-				<li className="bill" key={bill}>
-					<div className="company">
-						<div className="logo">
-							<img src="img/billsapp/logo.png" />
+		const bills = this.props.allBills;
+		if (bills.length > 0) {
+			return bills.map((bill, index) => {
+				console.log(bills.length);
+				return (
+					<li className="bill" key={index}>
+						<div className="company">
+							<div className="logo">
+								<img src="img/billsapp/logo.png" />
+							</div>
 						</div>
-					</div>
-					<div className="title">Coding Phase</div>
-					<div className="price">-$29.99</div>
+						<div className="title">{bill.business_name}</div>
+						<div className="price">${bill.price}</div>
+						<div className="buttons">
+							<div className="paid">pay</div>
+							<div className="delete">delete</div>
+						</div>
+					</li>
+				);
+			});
+		} else {
+			return (
+				<li className="bill">
+					<div className="no-bills">No bills</div>
 				</li>
 			);
-		});
+		}
+	};
+
+	billsTotaler = () => {
+		const bills = this.props.allBills;
+		let total = 0;
+		if (bills.length > 0) {
+			for (let i = 0; i < bills.length; i++) {
+				total += parseInt(bills[i].price);
+			}
+			return total;
+		} else {
+			return 0;
+		}
 	};
 
 	render() {
@@ -32,7 +57,7 @@ export default class AllBills extends Component {
 				<div className="container">
 					<div className="total-bills">
 						<div className="text">Total Amount:</div>
-						<div className="number">$700:</div>
+						<div className="number">${this.billsTotaler()}</div>
 					</div>
 					<div>
 						<ul className="bill-list">{this.showAllBills()}</ul>

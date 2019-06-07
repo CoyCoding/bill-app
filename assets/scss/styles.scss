@@ -47,6 +47,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: acroll;
 
     #bills-app{
       width: 400px;
@@ -54,7 +55,7 @@ h1 {
       border-radius: 15px;
       overflow: hidden;
       #all-bills{
-            height: calc(100vh - 280px);
+
       }
 
     }

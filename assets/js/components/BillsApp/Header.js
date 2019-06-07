@@ -12,7 +12,7 @@ export default class Header extends Component {
 		return (
 			<header>
 				<h2>Bills App</h2>
-				<i>+</i>
+				<i onClick={this.props.clickedAddBillBtn}>+</i>
 			</header>
 		);
 	}

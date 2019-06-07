@@ -3,11 +3,14 @@
   height: 100vh;
   background: linear-gradient(45deg, #09c3ff, #0067b3);
   position: relative;
+  overflow: hidden;
+
   header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+    height: 10%;
 
     h2 {
       font-size: 2rem;
@@ -40,12 +43,15 @@
     z-index: 2;
     height: calc(100vh - 121px);
     overflow: scroll;
+    overflow-x: hidden;
+    height: 80%;
 
     .container {
       width: 100%;
       padding: 0 20px;
       background: #ffffff75;
       padding-bottom: 20px;
+
       .total-bills {
         color: white;
         display: flex;
@@ -64,9 +70,8 @@
       }
 
       .bill-list {
-
-
         .bill {
+          position: relative;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-pack: justify;
@@ -77,9 +82,16 @@
           padding: 20px;
           box-shadow: inset #c2c0c0 20px 0 0 1px;
           background: white;
+          overflow: hidden;
+          &:hover{
+            .buttons {
+            transform: translate3d(0, 0, 0);
+          }
+          }
           &:last-child {
             margin-bottom: 50px;
           }
+
           .company {
             .logo {
               height: 40px;
@@ -96,6 +108,39 @@
           .title {
             font-size: 1.1rem;
             margin: 0 auto 0 20px;
+          }
+
+          .buttons {
+            display: flex;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 130px;
+            justify-content: center;
+            color: white;
+            align-items: center;
+            transform: translate3d(100%, 0, 0);
+            transition: all .5s ease-in;
+
+
+            .paid {
+              background: #00c36c;
+              width: 50%;
+              height: 100%;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+            }
+
+            .delete {
+              background: #ff6969;
+              width: 50%;
+              display: flex;
+              justify-content: center;
+              height: 100%;
+              align-items: center;
+            }
           }
         }
       }
@@ -114,24 +159,28 @@
 
 #app {
   #menu {
-        box-shadow: black 0 0 20px 0px;
-    z-index: 4;
-   position: absolute;
+    box-shadow: black 0 0 20px 0;
+    z-index: 3;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background: white;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    height: 10%;
+
     .link {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 10%;
 
       .icon {
         font-size: 2rem;
         margin: 10px 0;
-        transition: color .5s ease-in-out;
+        transition: color 0.5s ease-in-out;
         color: grey;
       }
 
@@ -140,16 +189,90 @@
         margin-bottom: 10px;
         color: grey;
       }
+
       &:hover {
         color: transparent;
         background: linear-gradient(45deg, #09c3ff, #0067b3);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         cursor: pointer;
-        .fa:before{
+
+        .fa:before {
           background: linear-gradient(45deg, #09c3ff, #0067b3);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+#app {
+  #add-bill {
+    height: 80%;
+    position: absolute;
+    z-index: 4;
+    top: 10%;
+    background: white;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate3d(100%,0,0);
+    transition: transform 0.5s ease-in-out;
+
+    &.active {
+      transform: translate3d(0,0,0);
+    }
+
+    .container {
+      h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 0.2rem;
+      }
+
+      form {
+        .form-group {
+          margin: 0 0 1.5rem;
+        }
+
+        label {
+          display: block;
+          font-size: 0.8rem;
+          margin-bottom: 20px;
+        }
+
+        input {
+          display: block;
+          border-radius: 10px;
+          background: transparent;
+          border: solid lightblue;
+          font-size: 1rem;
+          color: black;
+          padding: 5px;
+          transition: all 1s ease-in;
+
+          &:focus {
+            border: solid blue;
+            outline-offset: 0;
+            outline: none;
+          }
+        }
+
+        button {
+          margin-top: 10px;
+          background: white;
+          border-radius: 10px;
+          border: lightblue solid;
+          padding: 10px 20px;
+          font-size: 1rem;
+          font-weight: 400;
+          width: 100%;
+          text-transform: uppercase;
         }
       }
     }
